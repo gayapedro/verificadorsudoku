@@ -19,7 +19,6 @@ void limpar(){
 	#ifdef _WIN32
 	    system("cls");
 	#else
-	    // Assume POSIX
 	    system ("clear");
 	#endif
 }
