@@ -1,21 +1,22 @@
 /*
-* ----------------------------------------------------------------------------
-* "A LICENÇA BEER-WARE ou A LICENÇA DA CERVEJA" (Revisão 43 em Portugués Brasil):
-* <pedrogaya@gmail.com> escreveu este arquivo. Enquanto esta nota estiver na coisa você poderá utilizá-la
-* como quiser. Caso nos encontremos algum dia e você me reconheça e ache que esta coisa tem algum
-* valor, você poderá me pagar uma cerveja em retribuição (ou mais de uma), Pedro Gaya.
-* ----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+A LICENÇA BEER-WARE ou A LICENÇA DA CERVEJA (Revisão 43 em Portugués Brasil):
+<pedrogaya@gmail.com> escreveu este arquivo. Enquanto esta nota estiver na coisa você poderá utilizá-la
+como quiser. Caso nos encontremos algum dia e você me reconheça e ache que esta coisa tem algum
+valor, você poderá me pagar uma cerveja em retribuição (ou mais de uma), Pedro Gaya.
+----------------------------------------------------------------------------
 */
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cstring>
 using namespace std;
 
 #define linhas 9
 #define colunas 9
 
 void limpar(){
-	#ifdef WINDOWS
+	#ifdef _WIN32
 	    system("cls");
 	#else
 	    // Assume POSIX
@@ -154,15 +155,14 @@ void mostraSudoku(char matriz[linhas][colunas]){
 
 void logo(){
 	limpar();
-	cout << " ██▒   █▓ ▄▄▄       ██▓     ██▓▓█████▄  ▄▄▄      ▓█████▄  ▒█████   ██▀███       ██████  █    ██ ▓█████▄  ▒█████   ██ ▄█▀ █    ██ " << endl;
-	cout << "▓██░   █▒▒████▄    ▓██▒    ▓██▒▒██▀ ██▌▒████▄    ▒██▀ ██▌▒██▒  ██▒▓██ ▒ ██▒   ▒██    ▒  ██  ▓██▒▒██▀ ██▌▒██▒  ██▒ ██▄█▒  ██  ▓██▒" << endl;
-	cout << " ▓██  █▒░▒██  ▀█▄  ▒██░    ▒██▒░██   █▌▒██  ▀█▄  ░██   █▌▒██░  ██▒▓██ ░▄█ ▒   ░ ▓██▄   ▓██  ▒██░░██   █▌▒██░  ██▒▓███▄░ ▓██  ▒██░" << endl;
-	cout << "  ▒██ █░░░██▄▄▄▄██ ▒██░    ░██░░▓█▄   ▌░██▄▄▄▄██ ░▓█▄   ▌▒██   ██░▒██▀▀█▄       ▒   ██▒▓▓█  ░██░░▓█▄   ▌▒██   ██░▓██ █▄ ▓▓█  ░██░" << endl;
-	cout << "   ▒▀█░   ▓█   ▓██▒░██████▒░██░░▒████▓  ▓█   ▓██▒░▒████▓ ░ ████▓▒░░██▓ ▒██▒   ▒██████▒▒▒▒█████▓ ░▒████▓ ░ ████▓▒░▒██▒ █▄▒▒█████▓ " << endl;
-	cout << "   ░ ▐░   ▒▒   ▓▒█░░ ▒░▓  ░░▓   ▒▒▓  ▒  ▒▒   ▓▒█░ ▒▒▓  ▒ ░ ▒░▒░▒░ ░ ▒▓ ░▒▓░   ▒ ▒▓▒ ▒ ░░▒▓▒ ▒ ▒  ▒▒▓  ▒ ░ ▒░▒░▒░ ▒ ▒▒ ▓▒░▒▓▒ ▒ ▒ " << endl;
-	cout << "   ░ ░░    ▒   ▒▒ ░░ ░ ▒  ░ ▒ ░ ░ ▒  ▒   ▒   ▒▒ ░ ░ ▒  ▒   ░ ▒ ▒░   ░▒ ░ ▒░   ░ ░▒  ░ ░░░▒░ ░ ░  ░ ▒  ▒   ░ ▒ ▒░ ░ ░▒ ▒░░░▒░ ░ ░ " << endl;
-	cout << "     ░░    ░   ▒     ░ ░    ▒ ░ ░ ░  ░   ░   ▒    ░ ░  ░ ░ ░ ░ ▒    ░░   ░    ░  ░  ░   ░░░ ░ ░  ░ ░  ░ ░ ░ ░ ▒  ░ ░░ ░  ░░░ ░ ░ " << endl;
-	cout << "      ░        ░  ░    ░  ░ ░     ░          ░  ░   ░        ░ ░     ░              ░     ░        ░        ░ ░  ░  ░      ░     " << endl;
+	cout << " #     #                                                                 #####                                     " << endl;
+	cout << " #     # ###### #####  # ###### #  ####    ##   #####   ####  #####     #     # #    # #####   ####  #    # #    # " << endl;
+	cout << " #     # #      #    # # #      # #    #  #  #  #    # #    # #    #    #       #    # #    # #    # #   #  #    # " << endl;
+	cout << " #     # #####  #    # # #####  # #      #    # #    # #    # #    #     #####  #    # #    # #    # ####   #    # " << endl;
+	cout << "  #   #  #      #####  # #      # #      ###### #    # #    # #####           # #    # #    # #    # #  #   #    # " << endl;
+	cout << "   # #   #      #   #  # #      # #    # #    # #    # #    # #   #     #     # #    # #    # #    # #   #  #    # " << endl;
+	cout << "    #    ###### #    # # #      #  ####  #    # #####   ####  #    #     #####   ####  #####   ####  #    #  ####  " << endl;
+	cout << "                                                                                                                   " << endl;
 }
 
 int menu(){
